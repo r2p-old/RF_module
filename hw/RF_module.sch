@@ -3382,16 +3382,16 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <rectangle x1="-2.45" y1="3.25" x2="-2.05" y2="3.45" layer="51" rot="R270"/>
 <rectangle x1="-2.95" y1="3.25" x2="-2.55" y2="3.45" layer="51" rot="R270"/>
 </package>
-<package name="ABRACON_2.5X2">
+<package name="XTAL_2.5X2">
 <circle x="-0.665" y="-0.4" radius="0.1802" width="0" layer="51"/>
-<wire x1="-1" y1="0.95" x2="1" y2="0.95" width="0.2032" layer="51"/>
-<wire x1="1.2" y1="0.75" x2="1.2" y2="-0.75" width="0.2032" layer="51"/>
-<wire x1="1" y1="-0.95" x2="-1" y2="-0.95" width="0.2032" layer="51"/>
-<wire x1="-1.2" y1="-0.75" x2="-1.2" y2="0.75" width="0.2032" layer="51"/>
-<wire x1="-1" y1="0.95" x2="-1.2" y2="0.75" width="0.2032" layer="51" curve="-90"/>
-<wire x1="1.2" y1="0.75" x2="1" y2="0.95" width="0.2032" layer="51" curve="-90"/>
-<wire x1="-1.2" y1="-0.75" x2="-1" y2="-0.95" width="0.2032" layer="51" curve="-90"/>
-<wire x1="1" y1="-0.95" x2="1.2" y2="-0.75" width="0.2032" layer="51" curve="-90"/>
+<wire x1="-1" y1="0.95" x2="1" y2="0.95" width="0.2" layer="51"/>
+<wire x1="1.2" y1="0.75" x2="1.2" y2="-0.75" width="0.2" layer="51"/>
+<wire x1="1" y1="-0.95" x2="-1" y2="-0.95" width="0.2" layer="51"/>
+<wire x1="-1.2" y1="-0.75" x2="-1.2" y2="0.75" width="0.2" layer="51"/>
+<wire x1="-1" y1="0.95" x2="-1.2" y2="0.75" width="0.2" layer="51" curve="-90"/>
+<wire x1="1.2" y1="0.75" x2="1" y2="0.95" width="0.2" layer="51" curve="-90"/>
+<wire x1="-1.2" y1="-0.75" x2="-1" y2="-0.95" width="0.2" layer="51" curve="-90"/>
+<wire x1="1" y1="-0.95" x2="1.2" y2="-0.75" width="0.2" layer="51" curve="-90"/>
 <smd name="1" x="-0.825" y="-0.7625" dx="0.65" dy="0.8" layer="1"/>
 <smd name="2" x="0.825" y="-0.7625" dx="0.65" dy="0.8" layer="1"/>
 <smd name="3" x="0.825" y="0.7625" dx="0.65" dy="0.8" layer="1" rot="R180"/>
@@ -3485,7 +3485,7 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 <pin name="VCC" x="-15.24" y="-5.08" visible="pin" length="middle"/>
 <pin name="VIN" x="-15.24" y="10.16" visible="pin" length="middle"/>
 </symbol>
-<symbol name="ABRACON_OSC">
+<symbol name="OSC">
 <wire x1="-7.62" y1="7.62" x2="-7.62" y2="-7.62" width="0.4064" layer="94"/>
 <wire x1="7.62" y1="-7.62" x2="-7.62" y2="-7.62" width="0.4064" layer="94"/>
 <wire x1="7.62" y1="-7.62" x2="7.62" y2="-5.08" width="0.4064" layer="94"/>
@@ -3688,12 +3688,12 @@ Source: http://datasheets.maxim-ic.com/en/ds/MAX4335-MAX4338.pdf</description>
 </device>
 </devices>
 </deviceset>
-<deviceset name="ABRACON_ASD">
+<deviceset name="OSC" prefix="U">
 <gates>
-<gate name="G$1" symbol="ABRACON_OSC" x="0" y="0"/>
+<gate name="G$1" symbol="OSC" x="0" y="0"/>
 </gates>
 <devices>
-<device name="" package="ABRACON_2.5X2">
+<device name="" package="XTAL_2.5X2">
 <connects>
 <connect gate="G$1" pin="GND" pad="2"/>
 <connect gate="G$1" pin="OUT" pad="3"/>
@@ -5001,7 +5001,7 @@ DIN A3, landscape with extra doc field</description>
 <part name="GND13" library="r2p_supply" deviceset="GND" device=""/>
 <part name="SOT1" library="r2p_ic" deviceset="MAX3051" device="EKA"/>
 <part name="U$1" library="r2p_pcb" deviceset="PCB_25X45" device=""/>
-<part name="U$5" library="r2p_ic" deviceset="ABRACON_ASD" device=""/>
+<part name="U$5" library="r2p_ic" deviceset="OSC" device=""/>
 <part name="+3V7" library="r2p_supply" deviceset="+3V3" device=""/>
 <part name="U$7" library="r2p_supply" deviceset="+VBUS" device=""/>
 <part name="U$8" library="r2p_supply" deviceset="+VBUS" device=""/>
@@ -5373,7 +5373,8 @@ DIN A3, landscape with extra doc field</description>
 <pinref part="SOT1" gate="G$1" pin="VCC"/>
 </segment>
 <segment>
-<wire x1="17.78" y1="71.12" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
+<wire x1="17.78" y1="71.12" x2="15.24" y2="71.12" width="0.1524" layer="91"/>
+<wire x1="15.24" y1="71.12" x2="15.24" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="U$4" gate="G$1" pin="1"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 </segment>
